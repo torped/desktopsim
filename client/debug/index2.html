@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="stylesheet/style.css" />
+    <title>PWD</title>
+</head>
+
+<body>
+<canvas id="c"></canvas>                           <!--canvas for an animation -->
+<template id="menuBar">                                 <!--A template for the menu that is used for every application -->
+    <div class="menuContainer" draggable="false">
+        <select class="menu">
+            <option value="">Menu</option>
+            <option value="settings">Settings</option>
+            <option value="restart">Restart</option>
+            <option value="close">Close</option>
+        </select>
+        <button id="close" draggable="false">X</button>
+    </div>
+</template>
+
+<template id="chat">                            <!--the Template for the chat application -->
+    <div class="chat">
+        <div class="messages">
+            <template>
+                <div class="message">
+                    <p class="author"></p>
+                    <p class="text"></p>
+                </div>
+            </template>
+        </div>
+        <textarea class="messageArea"></textarea>
+        <div id="chatConfig">
+            <form>
+                <input type="text" value="User Name" onFocus="this.value=''"
+                       name="user" min="1" max="20" id="userName"/>
+                <input type="submit" id="chatSubmit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+</template>
+
+<template id="memoryTemplate">                      <!--Template for the memory game -->
+    <div class="memory" data-value="0">
+        <a href="#"><img src="image/memory/0.png" draggable="false" alt="A memory brick"/></a>
+    </div>
+    <div id="memoryConfig">
+        <form >
+            <label> <input type="radio" value="2" name="one"  id="twoTwo"/>2x2</label>
+            <label> <input type="radio" value="3" name="one" id="fourTwo"/>2x4</label>
+            <label><input type="radio" value="4" name="one" id="fourFour"/>4x4</label>
+            <input type="submit" id="memorySubmit" value="Submit"/>
+        </form>
+    </div>
+</template>
+
+<template id="snakeTemplate">                   <!--template for the snake game -->
+    <div id="snake">
+        <div id="game"></div>
+        <img src="image/snake/snakeHead.png" id="head" draggable="false" alt="A snake head"/>
+        <img src="image/snake/apple.png" id="apple" draggable="false" alt="A snake head"/>
+        <img src="image/snake/body.png" id="snakeBody" draggable="false" alt="A snake head"/>
+        <p></p>
+    </div>
+    <div id="snakeConfig">
+        <form>
+            <input type="range" title="speed of the snake" name="speed" min="1" max="200" value="1" id="mySpeed"
+                   oninput="speedOutPut.value = mySpeed.value"/>
+            <output name="speed" id="speedOutPut">1</output><label> Speed</label>
+            <input type="submit" id="mySubmit" value="Submit"/>
+        </form>
+    </div>
+</template>
+
+
+<header>
+    <div id="appContainer">                                             <!--Here is where the application icons and-->
+        <img class="memoryImg" src="image/game.png" alt="Joystick"/>   <!--there containers that will duplicated. -->
+        <div id="memoryContainer" tabindex="100"  data-value="1"></div>
+        <img class="chatImg" src="image/chat.png" alt="Chat bubbels"/>
+        <div id="chatContainer" tabindex="100" data-value="1"></div>
+        <img class="snakeImg" src="image/snake/snakeImg.png" alt="A snake game"/>
+        <div id="snakeContainer" tabindex="100" data-value="1"></div>
+        <img class = "crossImg" src="image/cross.png" alt="don't press the red button"/>
+        <div id="redButtomContainer" tabindex="100" data-value="1"><p>Don't press the<br>RED BUTTON!</p></div>
+    </div>
+    <div id="play"></div>           <!--in this div its supposed to collect all apps that will be open so they are under -->
+    <!--the same roof and don't mess up other things -->
+</header>
+<footer>
+</footer>
+</body>
+<script src="javascript/build.js"></script>
+</html>
+
